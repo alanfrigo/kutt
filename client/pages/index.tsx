@@ -16,7 +16,6 @@ const Homepage = () => {
 
   if (
     !isAuthenticated &&
-    DISALLOW_ANONYMOUS_LINKS &&
     typeof window !== "undefined"
   ) {
     Router.push("/login");
