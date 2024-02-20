@@ -15,6 +15,5 @@ const Homepage = () => {
     Router.push("/login");
     return null;
   }
-};
 
 export default Homepage;
