@@ -12,8 +12,24 @@ import Footer from "../components/Footer";
 import { useStoreState } from "../store";
 
 const Homepage = () => {
+  const isAuthenticated = useStoreState(s => s.auth.isAuthenticated);
+
+  if (
+    !isAuthenticated &&
+    typeof window !== "undefined"
+  ) {
     Router.push("/login");
     return null;
   }
-
+  return (
+    <AppWrapper>
+      <Shortener />
+      {!isAuthenticated && <NeedToLogin />}
+      {isAuthenticated && <LinksTable />}
+      <Features />
+      <Extensions />
+      <Footer />
+    </AppWrapper>
+  );
+};
 export default Homepage;
